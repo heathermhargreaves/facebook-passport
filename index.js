@@ -2,10 +2,11 @@ var express = require('express');
 var session = require('express-session');
 var passport = require('passport');
 var facebookStrategy = require('passport-facebook').Strategy;
+var myKeys = require('./keys');
 
 passport.use(new facebookStrategy({
-    clientID: "appid",
-    clientSecret: "appsecret",
+    clientID: myKeys.facebookKey,
+    clientSecret: myKeys.facebookSecret,
     callbackURL: "http://localhost:3000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, next) {
